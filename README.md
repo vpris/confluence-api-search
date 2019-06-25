@@ -1,7 +1,7 @@
 ----
 # ucmdb-api-search
 
-#### Connector uCMDB on PHP and cURL.
+#### Search connector uCMDB on PHP and cURL.
 
 ----
 
