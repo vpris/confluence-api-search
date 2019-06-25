@@ -44,14 +44,21 @@ if ($err) {
 }
 
 print "<div class='cmdbResult'>";
-$bodys = array_filter($body);
-if (!empty($bodys)) {
-     foreach($bodys['cis'] as $cmdbResult) {
-        print $cmdbResult['properties']['name'];
-        print $cmdbResult['properties']['display_label'];
-        print "<hr>";
+
+    if(is_array($body)) {
+        $bodys = array_filter($body);
+    } else {
+        $bodys = array();
+    }
+
+    if (!empty($bodys)) {
+        foreach($bodys['cis'] as $cmdbResult) {
+            print $cmdbResult['properties']['name'];
+            print $cmdbResult['properties']['display_label'];
+            print "<hr>";
         }
     } else {
-        print "<div class='notFound'>Not Found! Try changing the query. You can search only the server. You can find only in full name. Example: s-msk-p-appsd </div>";
+        print "<div class='notFound'>Not Found! Попробуйте изменить запрос. Искать можно только сервер. Найти можно только по-полному названию. Пример: s-msk-p-appsd </div>";
     }
+
 print "</div>";

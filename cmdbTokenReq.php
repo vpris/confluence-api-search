@@ -3,7 +3,6 @@
 // Database connection credentials
 $usr = "root";
 $pwd = "root";
-$debug = false;
 
 if (file_exists(__DIR__.'/config_local.php')) {
     include __DIR__.'/config_local.php';
@@ -23,8 +22,8 @@ curl_setopt_array($curl, array(
   CURLOPT_RETURNTRANSFER => 1,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 2,
-  CURLOPT_CONNECTTIMEOUT => 2,
+  CURLOPT_TIMEOUT => 4,
+  CURLOPT_CONNECTTIMEOUT => 4,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\n    \"username\": \"$usr\",\n    \"password\": \"$pwd\",\n    \"clientContext\": 1\n}",
@@ -33,8 +32,8 @@ curl_setopt_array($curl, array(
     "Cache-Control: no-cache",
     "Connection: keep-alive",
     "Content-Type: application/json",
-    "Host: s-msk-p-ucmdb2.raiffeisen.ru:8443",
-    "User-Agent: Routing Search/beta2.0",
+    "Host: $serverName",
+    "User-Agent: Routing Search/beta 2.0",
     "accept-encoding: gzip, deflate",
     "cache-control: no-cache",
   ),
